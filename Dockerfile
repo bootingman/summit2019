@@ -1,18 +1,16 @@
-FROM ubuntu:bionic
+FROM romeoz/docker-nginx-php:7.3
 
-WORKDIR /app
+WORKDIR /var/www/app/
 
-COPY . /app
-
-ENV DEBIAN_FRONTEND=noninteractive
+COPY . .
 
 RUN apt update && \
-  apt install --no-install-recommends -y php php-fpm php-xml php-zip ca-certificates git nginx && \
+  apt install --no-install-recommends -y php-xml php-zip ca-certificates git && \
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
   php composer-setup.php && \
   rm composer-setup.php && \
-  php composer.phar install && \
-  cp /app/config/nginx.conf /etc/nginx
+  php composer.phar install
 
-EXPOSE 8080
-CMD ["nginx", "-g", "daemon off;"]
+EXPOSE 80 443
+
+CMD ["/usr/bin/supervisord"]

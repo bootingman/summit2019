@@ -27,7 +27,8 @@ spec:
           subPath: .env
         ports:
         - name: http
-          containerPort: {{ .Values.port }}
+          port: {{ .Values.port }}
+          containerPort: 80
         resources:
           requests:
             memory: 512Mi
