@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-app
+  namespace: {{ include "summit2019.namespace" . }}
+data:
+  .env: |-
+    {{- with .Values.mariadb.db }}
+    DB_NAME={{ .name }}
+    DB_USER={{ .user }}
+    DB_PASSWORD={{ .password | quote }}
+    {{- end }}
+
+    DB_HOST=mariadb-0
+    DB_PREFIX=wp_
+
+    WP_ENV={{ .Values.environment }}
+    WP_HOME={{ include "summit2019.home" . | quote }}
+    WP_SITEURL=${WP_HOME}/wp
+
+    # Generate your keys here: https://roots.io/salts.html
+    {{- with .Values.salts }}
+    AUTH_KEY={{ .authKey | quote}}
+    SECURE_AUTH_KEY={{ .secureAuthKey | quote}}
+    LOGGED_IN_KEY={{ .loggedInKey | quote}}
+    NONCE_KEY={{ .nonceKey | quote}}
+    AUTH_SALT={{ .authSalt | quote}}
+    SECURE_AUTH_SALT={{ .secureAuthSalt | quote}}
+    LOGGED_IN_SALT={{ .loggedInSalt | quote}}
+    NONCE_SALT={{ .nonceSalt | quote}}
+    {{- end }}

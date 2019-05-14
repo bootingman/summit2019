@@ -1,0 +1,43 @@
+image:
+  repo: web3f/summit2019
+  tag: latest
+
+environment: staging
+
+domain: web3summit.com
+
+salts:
+  authKey: authKey
+  secureAuthKey: secureAuthKey
+  loggedInKey: loggedInKey
+  nonceKey: nonceKey
+  authSalt: authSalt
+  secureAuthSalt: secureAuthSalt
+  loggedInSalt: loggedInSalt
+  nonceSalt: nonceSalt
+
+port: 8080
+
+persistence:
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 1Gi
+
+mariadb:
+  enabled: true
+  replication:
+    enabled: false
+
+  db:
+    name: summit2019
+    user: summit2019_user
+    password: summit2019_pass
+
+  rootUser:
+    password: rootPassword
+
+  master:
+    persistence:
+      enabled: true
+      accessMode: ReadWriteOnce
+      size: 8Gi
