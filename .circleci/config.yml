@@ -82,7 +82,7 @@ workflows:
               only: /v[0-9]+(\.[0-9]+)*/
           requires:
             - buildImage
-            - integrationTests
+            #- integrationTests
       - publishChart:
           filters:
             branches:
@@ -91,7 +91,7 @@ workflows:
               only: /v[0-9]+(\.[0-9]+)*/
           requires:
             - buildImage
-            - integrationTests
+            #- integrationTests
       #- deployStaging:
       #    filters:
       #      branches:
