@@ -70,10 +70,10 @@ workflows:
           filters:
             branches:
               only: /.*/
-      - integrationTests:
-          filters:
-            tags:
-              only: /.*/
+      #- integrationTests:
+      #    filters:
+      #      tags:
+      #        only: /.*/
       - publishImage:
           filters:
             branches:
@@ -92,13 +92,13 @@ workflows:
           requires:
             - buildImage
             - integrationTests
-      - deployStaging:
-          filters:
-            branches:
-              only: /master/
-          requires:
-            - buildImage
-            - integrationTests
+      #- deployStaging:
+      #    filters:
+      #      branches:
+      #        only: /master/
+      #    requires:
+      #      - buildImage
+      #      - integrationTests
       - deployProduction:
           filters:
             branches:
