@@ -11,6 +11,57 @@ jobs:
           command: |
             /scripts/build-image.sh web3f/summit2019 .
 
+  integrationTests:
+    docker:
+      - image: web3f/ci-commons:v0.1.9
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          description: run integration tests
+          command: |
+            /scripts/integration-tests.sh
+
+  publishImage:
+    docker:
+      - image: web3f/ci-commons:v0.1.9
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          command: |
+            /scripts/publish-image.sh web3f/polkadot-faucet
+
+  publishChart:
+    docker:
+      - image: web3f/ci-commons:v0.1.9
+    steps:
+      - checkout
+      - run:
+          command: |
+            /scripts/publish-chart.sh
+
+  deployStaging:
+    docker:
+      - image: web3f/ci-commons:v0.1.9
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          command: |
+            ./scripts/deploy.sh staging
+
+  deployProduction:
+    docker:
+      - image: web3f/ci-commons:v0.1.9
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          command: |
+            ./scripts/deploy.sh production
+
 workflows:
   version: 2
   test-deploy:
@@ -18,4 +69,42 @@ workflows:
       - buildImage:
           filters:
             branches:
+              only: /.*/
+      - integrationTests:
+          filters:
+            tags:
+              only: /.*/
+      - publishImage:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/
+          requires:
+            - buildImage
+            - integrationTests
+      - publishChart:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/
+          requires:
+            - buildImage
+            - integrationTests
+      - deployStaging:
+          filters:
+            branches:
               only: /master/
+          requires:
+            - buildImage
+            - integrationTests
+      - deployProduction:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /v[0-9]+(\.[0-9]+)*/
+          requires:
+            - publishChart
+            - publishImage
