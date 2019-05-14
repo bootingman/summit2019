@@ -1,0 +1,1 @@
+{"version":3,"sources":["../jqmobile-conf.js"],"names":["$","document","on","mobile","ajaxEnabled","loadingMessage","jQuery"],"mappings":"CAAA,SAAUA,GACTA,EAAEC,UAAUC,GAAG,aAAc,WAC5BF,EAAEG,OAAOC,aAAc,EACvBJ,EAAEG,OAAOE,gBAAiB,IAH5B,CAKGC"}

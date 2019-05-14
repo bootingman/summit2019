@@ -1,0 +1,23 @@
+.page--column--content {
+	padding-bottom: $margin;
+	@include md {
+		padding-bottom: $margin*2;
+		padding-right: $margin;
+	}
+}
+
+p {
+	
+	img {
+		margin: 0;
+		padding: 0;
+		width: 100%;
+		max-width: 1200px;
+		height: auto;
+
+		@include md {
+			margin-left: calc(100% / 3);
+			width: 150%;
+		}
+	}	
+}

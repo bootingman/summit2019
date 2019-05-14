@@ -1,0 +1,33 @@
+.blocks {
+	z-index: 0;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.blocks--front {
+	background: white;
+}
+
+#blocks--touch {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	z-index: 999;
+}
+
+.block--fill {
+	width: 7px;
+	height: 7px;
+	background-color: black;
+	position: absolute;
+	display: none;
+}
+
+.block--fill.block--filled.block--available {
+	display: block;
+}

@@ -1,0 +1,66 @@
+.intro-body {
+// Resets margins and paddings for headers, ul, ol and p
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p,
+blockquote {
+	margin: 0;
+	padding: 0;
+}
+
+// Completely resets form items
+// ----------------------------
+// Super hard reset that removes all borders
+// and radius of all form items.
+// ============================
+input,
+textarea,
+button {
+	border: 0;
+	border-radius: 0;
+	outline: none;
+	appearance: none;
+
+	&:hover,
+	&:active,
+	&:focus {
+		outline: none;
+	}
+}
+
+// Use border-box for everything
+html {
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+	width: 100%;
+	min-height: 100vh;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+// Set Image and Objects to have a max-width of 100%
+embed,
+iframe,
+img,
+object,
+video {
+	max-width: 100%;
+}
+}
+
+// hide mobile jq ui message
+.ui-loading .ui-loader { display: block; }
+.ui-loader { display: none; position: absolute; opacity: .85; z-index: 100; left: 50%; width: 200px; margin-left: -130px; margin-top: -35px; padding: 10px 30px; }

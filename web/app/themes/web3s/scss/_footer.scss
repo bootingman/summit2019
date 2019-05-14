@@ -1,0 +1,63 @@
+.footer {
+
+	margin-left: $margin;
+	margin-bottom: $margin;	
+
+	.home & {
+		visibility: hidden;
+		position: fixed;
+		margin: 0;
+		left: $margin;
+		bottom: $margin;
+	}
+
+	@include md() {
+		position: fixed;
+		margin: 0;
+		left: $margin;
+		bottom: $margin;
+	}
+
+	.main-space &, .workshop &, .studio1 &, .studio4 &, body.video &, body.page-template-template-photos-one-page &,  body.page-template-template-photos-w-subpages &,  body.page-template-template-photos-one-page-no-submenu-php &, .page-template-template-video-cat-front & {
+		@include md() {
+			position: relative;
+			left: auto;
+			bottom: auto;
+			margin-left: $margin;
+			margin-bottom: $margin;	
+		}	
+	}
+
+}
+
+.footer--link {
+	text-decoration: none;
+
+	&.is-active {
+		@include boldCut();
+	}
+}
+
+.footer--submenu {
+	margin-top: 0;
+	margin-bottom: $margin;
+
+	li {
+		a {
+			text-decoration: none;
+			&:visited {
+				text-decoration: none;
+			}
+			&:hover {
+				text-decoration: none;
+				@include boldCut();
+			}
+		}
+
+		&.current_page_item {
+			a {
+				@include boldCut();	
+			}
+		}
+	}
+}

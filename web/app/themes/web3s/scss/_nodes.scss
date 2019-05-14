@@ -1,0 +1,28 @@
+.node-list-link {
+	text-decoration: none;
+	margin-bottom: $margin / 2;
+	display: block;
+	
+	&:visited {
+		text-decoration: none;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.node-list-name {
+	@include boldCut;
+}
+
+.node-list-description {
+	display: block;
+}
+
+.node-single-name {
+	margin-bottom: 0;
+}
+
+.node-single-company {
+	margin-bottom: $margin;
+}

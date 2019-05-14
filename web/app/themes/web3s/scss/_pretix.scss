@@ -1,0 +1,208 @@
+.page--ticketing .pretix-widget-wrapper {
+	max-width: 600px;
+}
+
+
+.pretix-widget {
+
+	margin: 0;
+	padding: 0;
+	border: 2px solid black;
+	border-radius: 0;
+	min-height: auto;
+	min-height: 219px;
+
+	.pretix-widget-loading {
+		min-height: 219px;
+		background: white;
+		border: 2px solid black;
+		margin-left: -2px;
+		margin-top: -2px;
+		width: calc(100% + 4px);
+	}
+
+	.pretix-widget-item-row {
+		padding: 20px 0;
+		padding-top: 15px;
+	}
+
+	form {
+		padding-bottom: 20px;
+	}
+
+	.pretix-widget-info-message {
+
+		color: black;
+		text-align: left;
+		margin-left: 5px;
+		margin-right: 5px;
+		margin-top: 5px;
+
+		border: 2px solid black;
+		border-radius: 0;
+
+		&:hover {
+			@include boldCut();
+		}
+
+		.pretix-widget-clickable {
+
+		}
+	}
+
+	.pretix-widget-primary-color {
+		fill: black;
+	}
+
+	.pretix-widget-category {
+		margin: 0;
+		.pretix-widget-category-name {
+			margin-top: 20px;
+			font-weight: normal;
+			display: none;
+		}
+	}
+
+
+	.pretix-widget-item-title {
+		font-weight: normal;
+	}
+
+	.pretix-widget-item-title-and-description {
+		strong {
+			@include boldCut;	
+		}
+
+		.pretix-widget-item-description {
+			margin: 15px 0;
+		}
+	}
+
+	.pretix-widget-pricebox {
+		span {
+			@include boldCut;
+		}
+	}
+
+	.pretix-widget-item-info-col {
+		float: none !important;
+		width: 100% !important;
+		margin-bottom: 25px;
+	}
+
+	.pretix-widget-item-price-col {
+		width: 50% !important;
+		text-align: left;
+	}
+
+	.pretix-widget-item-availability-col {
+		width: 50% !important;
+	}
+
+	.pretix-widget-availability-available {
+		input {
+			border: 1px solid black;
+			border-radius: 0;
+			box-shadow: 0;
+			color: black;
+
+			&::placeholder {
+				color: black;
+			}
+
+			&::placeholder-shown {
+				color: black;
+			}
+		}
+	}
+
+	.pretix-widget-action {
+
+		width: 100%;
+		margin: 0;
+
+		margin-top: 20px;
+
+		button {
+			background-color: black;
+			border-radius: 0;
+			font-size: 14px;
+			line-height: 18px;
+			font-weight: normal;
+		}
+	}
+
+	.pretix-widget-attribution {
+		display: none;
+	}
+
+	.pretix-widget-voucher {
+		.pretix-widget-voucher-headline {
+			margin-top: 5px;
+			margin-bottom: 25px;
+			font-family: 'SuisseInt-Regular';
+		    font-weight: normal;
+    		font-size: 14px;
+    		line-height: 18px;
+		}
+
+		.pretix-widget-voucher-input-wrap {
+
+			float: none !important;
+			width: 100% !important;
+			margin-bottom: 20px;
+
+
+			input {
+				border: 1px solid black;
+				border-radius: 0;
+				box-shadow: 0;
+				color: black;
+
+				&::placeholder {
+					color: black;
+				}
+
+				&::placeholder-shown {
+					color: black;
+				}
+			}
+		}
+
+		.pretix-widget-voucher-button-wrap {
+
+			float: none !important;
+			width: 100% !important;
+
+			button {
+				border-radius: 0;
+				box-shadow: 0;
+				font-size: 14px;
+    			line-height: 18px;
+    			font-weight: normal;
+			}
+		}
+	}
+
+}
+
+.pretix-widget-frame-holder {
+
+	.pretix-widget-frame-inner {
+		box-shadow: none;
+		border: 2px solid black;
+		border-radius: 0;
+	}
+
+	.pretix-widget-primary-color {
+		fill: black;
+	}
+
+	.pretix-widget-frame-close {
+		background: black;
+		border-radius: 0;
+		a {
+			font-weight: normal;
+		}
+	}
+}

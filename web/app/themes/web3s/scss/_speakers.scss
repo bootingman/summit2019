@@ -1,0 +1,28 @@
+.speaker-list-link {
+	text-decoration: none;
+	margin-bottom: $margin / 2;
+	display: block;
+	
+	&:visited {
+		text-decoration: none;
+	}
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+.speaker-list-name {
+	@include boldCut;
+}
+
+.speaker-list-company {
+	display: block;
+}
+
+.speaker-single-name {
+	margin-bottom: 0;
+}
+
+.speaker-single-company {
+	margin-bottom: $margin;
+}

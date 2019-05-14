@@ -1,0 +1,1 @@
+<?php wp_redirect( '/photos/studio-1' ); exit; ?>

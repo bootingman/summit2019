@@ -1,0 +1,83 @@
+// vars
+$margin: 22px;
+
+
+// helpers
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+%clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin word-wrap() {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+// typo
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+li,
+p,
+blockquote,
+strong,
+b {
+font-weight: normal;
+}
+
+
+// queries
+
+$screen-sm: 650px;
+$screen-md: 900px;
+$screen-lg: 1200px;
+
+@mixin sm {
+   @media (min-width: #{$screen-sm}) {
+       @content;
+   }
+}
+@mixin md {
+   @media (min-width: #{$screen-md}) {
+       @content;
+   }
+}
+@mixin maxmd {
+   @media (max-width: #{$screen-md - 1}) {
+       @content;
+   }
+}
+@mixin lg {
+   @media (min-width: #{$screen-lg}) {
+       @content;
+   }
+}
+@mixin rwd($screen) {
+   @media (min-width: $screen+'px') {
+       @content;
+   }
+}

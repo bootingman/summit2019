@@ -1,0 +1,23 @@
+.program-title {
+	margin: 0;
+	padding-bottom: 17px * 2;
+	@include md {
+		padding-bottom: 17px * 3;
+	}
+}
+
+.program-row {
+	padding-bottom: 17px * 2;
+	@include md {
+		padding-bottom: 17px * 3;
+	}
+}
+
+.program-row p {
+	padding-bottom: 18px;
+	margin: 0;
+
+	&:last-child {
+		padding-bottom: 0;
+	}
+}

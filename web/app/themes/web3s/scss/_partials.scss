@@ -1,0 +1,10 @@
+.t-uppercase {
+	text-transform: uppercase;
+}
+
+.l-gap {
+	display: none;
+	@include md {
+		display: block;
+	}
+}
