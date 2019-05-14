@@ -1,0 +1,8 @@
+{{- if ne .Values.environment "production" -}}
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: {{ include "summit2019.namespace" . }}
+  labels:
+    name: {{ include "summit2019.namespace" . }}
+{{- end}}
