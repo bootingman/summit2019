@@ -20,7 +20,7 @@ spec:
     spec:
     containers:
     - image: {{ .Values.image.repo }}:{{ .Values.image.tag }}
-      name: {{ .Release.name }}
+      name: {{ .Release.Name }}
       volumeMounts:
       - name: shared-files
         mountPath: /var/www/html
