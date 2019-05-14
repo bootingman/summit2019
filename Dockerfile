@@ -11,7 +11,8 @@ RUN apt update && \
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
   php composer-setup.php && \
   rm composer-setup.php && \
-  php composer.phar install
+  php composer.phar install && \
+  cp /app/config/nginx.conf /etc/nginx
 
 EXPOSE 8080
 CMD ["nginx"]

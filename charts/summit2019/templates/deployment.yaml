@@ -22,9 +22,6 @@ spec:
       - image: {{ .Values.image.repo }}:{{ .Values.image.tag }}
         name: {{ .Release.Name }}
         volumeMounts:
-        - name: nginx-config-volume
-          mountPath: /etc/nginx/nginx.conf
-          subPath: nginx.conf
         - name: app-config-volume
           mountPath: /app/.env
           subPath: .env
@@ -39,6 +36,3 @@ spec:
       - name: app-config-volume
         configMap:
           name: {{ .Release.Name }}-app
-      - name: nginx-config-volume
-        configMap:
-          name: {{ .Release.Name }}-nginx
