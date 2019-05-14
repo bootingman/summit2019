@@ -17,10 +17,10 @@ default
 {{- end -}}
 
 {{/* Return dns names for certificates */}}
-{{- define "summit2019.dnsNames" -}}
+{{- define "summit2019.dnsName" -}}
 {{- if eq .Values.environment "production" -}}
-- {{ .Values.domain }}
+{{ .Values.domain }}
 {{- else -}}
-- {{ .Values.environment }}.{{ .Values.domain }}
+{{ .Values.environment }}.{{ .Values.domain }}
 {{- end -}}
 {{- end -}}

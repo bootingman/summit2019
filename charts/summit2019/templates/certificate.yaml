@@ -9,11 +9,11 @@ spec:
   issuerRef:
     name: letsencrypt
   dnsNames:
-  {{ include "summit2019.dnsNames" .}}
+  - {{ include "summit2019.dnsName" .}}
   acme:
     config:
     - dns01:
         provider: prod-dns
       domains:
-      {{ include "summit2019.dnsNames" .}}
+      - {{ include "summit2019.dnsName" .}}
 {{ end }}
