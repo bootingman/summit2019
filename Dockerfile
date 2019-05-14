@@ -13,5 +13,5 @@ RUN apt update && \
   rm composer-setup.php && \
   php composer.phar install
 
-EXPOSE 80
+EXPOSE 8080
 CMD ["nginx"]
