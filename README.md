@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/w3f/summit2019.svg?style=svg&circle-token=44682f17eab10494c2ecd9a42b87a914a330c50e)](https://circleci.com/gh/w3f/summit2019)
+
 ## Requirements
 
 * Apache or Nginx
