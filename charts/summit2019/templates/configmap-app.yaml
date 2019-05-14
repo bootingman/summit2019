@@ -11,7 +11,7 @@ data:
     DB_PASSWORD={{ .password | quote }}
     {{- end }}
 
-    DB_HOST=mariadb-0
+    DB_HOST={{ .Release.Name }}-mariadb
     DB_PREFIX=wp_
 
     WP_ENV={{ .Values.environment }}

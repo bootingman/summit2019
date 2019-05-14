@@ -4,7 +4,7 @@ ENVIRONMENT=${1:-staging}
 TAG=
 
 if [ "$ENVIRONMENT" = "production" ]; then
-   TAG="${CIRCLE_TAG}"
+    TAG="${CIRCLE_TAG}"
 else
     TAG="${CIRCLE_SHA1}"
 fi

@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - {{- include "summit2019.dnsName" . }}
+      - {{ include "summit2019.dnsName" . }}
     secretName: {{ .Release.Name }}-tls
   rules:
-  - host: {{- include "summit2019.dnsName" . }}
+  - host: {{ include "summit2019.dnsName" . }}
     http:
       paths:
       - path: /
