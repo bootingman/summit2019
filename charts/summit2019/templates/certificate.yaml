@@ -8,6 +8,7 @@ spec:
   secretName: {{ .Release.Name }}-tls
   issuerRef:
     name: letsencrypt
+    kind: ClusterIssuer
   dnsNames:
   - {{ include "summit2019.dnsName" .}}
   acme:

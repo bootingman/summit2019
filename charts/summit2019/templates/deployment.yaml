@@ -22,26 +22,19 @@ spec:
       - image: {{ .Values.image.repo }}:{{ .Values.image.tag }}
         name: {{ .Release.Name }}
         volumeMounts:
-        - name: shared-files
-          mountPath: /var/www/html
-        lifecycle:
-          postStart:
-            exec:
-              command: ["/bin/sh", "-c", "cp -r /app/. /var/www/html"]
-        ports:
-        - name: http
-          containerPort: {{ .Values.port }}
-      - image: nginx:1.7.9
-        name: {{ .Release.Name }}-nginx
-        volumeMounts:
-        - name: shared-files
-          mountPath: /var/www/html
         - name: nginx-config-volume
           mountPath: /etc/nginx/nginx.conf
           subPath: nginx.conf
         - name: app-config-volume
-          mountPath: /var/www/html/.env
+          mountPath: /app/.env
           subPath: .env
+        ports:
+        - name: http
+          containerPort: {{ .Values.port }}
+        resources:
+          requests:
+            memory: 512Mi
+            cpu: 300m
       volumes:
       - name: app-config-volume
         configMap:
@@ -49,11 +42,3 @@ spec:
       - name: nginx-config-volume
         configMap:
           name: {{ .Release.Name }}-nginx
-      - name: shared-files
-        {{- if eq .Values.environment "ci" }}
-        emptyDir: {}
-        {{- else }}
-        persistentVolumeClaim:
-          claimName: {{ .Release.Name }}-app
-          namespace: {{ include "summit2019.namespace" . }}
-        {{- end }}
