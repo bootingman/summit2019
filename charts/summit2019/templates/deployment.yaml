@@ -27,7 +27,6 @@ spec:
           subPath: .env
         ports:
         - name: http
-          port: {{ .Values.port }}
           containerPort: 80
         resources:
           requests:
