@@ -12,7 +12,7 @@ data:
     {{- end }}
 
     DB_HOST={{ .Release.Name }}-mariadb
-    DB_PREFIX=wp_
+    DB_PREFIX=web333
 
     WP_ENV={{ .Values.environment }}
     WP_HOME={{ include "summit2019.home" . | quote }}
