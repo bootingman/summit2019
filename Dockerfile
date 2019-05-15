@@ -11,7 +11,8 @@ RUN apt update && \
   rm composer-setup.php && \
   php composer.phar install && \
   chown -R www-data:www-data . && \
-  ln -s /app /var/www/app
+  rm -rf /var/www/app && \
+  ln -s /app/web /var/www/app
 
 EXPOSE 80 443
 
