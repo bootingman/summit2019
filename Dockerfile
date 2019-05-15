@@ -1,6 +1,6 @@
 FROM romeoz/docker-nginx-php:7.3
 
-WORKDIR /var/www/app/
+WORKDIR /app/
 
 COPY . .
 
@@ -9,7 +9,9 @@ RUN apt update && \
   php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
   php composer-setup.php && \
   rm composer-setup.php && \
-  php composer.phar install
+  php composer.phar install && \
+  chown -R www-data:www-data . && \
+  ln -s /app /var/www/app
 
 EXPOSE 80 443
 
