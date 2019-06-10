@@ -98,7 +98,7 @@ workflows:
               only: /master/
           requires:
             - buildImage
-            - integrationTests
+            #- integrationTests
       - deployProduction:
           filters:
             branches:
