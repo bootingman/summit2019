@@ -5,3 +5,7 @@ dependencies:
   condition: mariadb.enabled
   tags:
     - wordpress-database
+- name: phpmyadmin
+  version: 2.2.5
+  repository: https://kubernetes-charts.storage.googleapis.com/
+  condition: mariadb.enabled

@@ -41,3 +41,7 @@ mariadb:
       enabled: true
       accessMode: ReadWriteOnce
       size: 8Gi
+
+phpmyadmin:
+  metrics:
+    enabled: true
