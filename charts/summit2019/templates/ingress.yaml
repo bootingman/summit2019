@@ -11,6 +11,9 @@ spec:
   - hosts:
       - {{ include "summit2019.dnsName" . }}
     secretName: {{ .Release.Name }}-tls
+  - hosts:
+      - {{ include "summit2019.phpmyadminDnsName" . }}
+    secretName: phpmyadmin-tls
   rules:
   - host: {{ include "summit2019.dnsName" . }}
     http:
@@ -19,3 +22,10 @@ spec:
         backend:
           serviceName: {{ .Release.Name }}
           servicePort: {{ .Values.port }}
+  - host: {{ include "summit2019.phpmyadminDnsName" . }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: phpmyadmin
+          servicePort: 80

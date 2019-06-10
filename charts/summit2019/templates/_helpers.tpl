@@ -24,3 +24,12 @@ default
 {{ .Values.environment }}.{{ .Values.domain }}
 {{- end -}}
 {{- end -}}
+
+{{/* Return dns names for phpmyadmin certificate */}}
+{{- define "summit2019.phpmyadminDnsName" -}}
+{{- if eq .Values.environment "production" -}}
+phpmyadmin.{{ .Values.domain }}
+{{- else -}}
+{{ .Values.environment }}.phpmyadmin.{{ .Values.domain }}
+{{- end -}}
+{{- end -}}
