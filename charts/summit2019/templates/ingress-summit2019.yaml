@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ include "summit2019.namespace" . }}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/limit-rps: "10"
+spec:
+  tls:
+  - hosts:
+      - {{ include "summit2019.dnsName" . }}
+    secretName: {{ .Release.Name }}-tls
+  rules:
+  - host: {{ include "summit2019.dnsName" . }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ .Release.Name }}
+          servicePort: {{ .Values.port }}
