@@ -1,9 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
-ENVIRONMENT=${1:-staging}
+ENVIRONMENT="${1}"
+if [ -z "${ENVIRONMENT}" ]; then
+    ENVIRONMENT=staging
+fi
+
+
 TAG=
 
-if [ "$ENVIRONMENT" = "production" ]; then
+if [ "${ENVIRONMENT}" = "production" ]; then
     TAG="${CIRCLE_TAG}"
 else
     TAG="${CIRCLE_SHA1}"
