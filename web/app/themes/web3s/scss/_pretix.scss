@@ -2,6 +2,15 @@
 	max-width: 600px;
 }
 
+.pretix-widget-wrapper {
+	&--soldout {
+		margin-bottom: 20px;
+
+		.pretix-widget-mobile {
+			min-height: auto;
+		}
+	}
+}
 
 .pretix-widget {
 
@@ -66,6 +75,7 @@
 
 	.pretix-widget-item-title {
 		font-weight: normal;
+		@include word-wrap();
 	}
 
 	.pretix-widget-item-title-and-description {
@@ -141,9 +151,9 @@
 			margin-top: 5px;
 			margin-bottom: 25px;
 			font-family: 'SuisseInt-Regular';
-		    font-weight: normal;
-    		font-size: 14px;
-    		line-height: 18px;
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 18px;
 		}
 
 		.pretix-widget-voucher-input-wrap {
@@ -178,8 +188,8 @@
 				border-radius: 0;
 				box-shadow: 0;
 				font-size: 14px;
-    			line-height: 18px;
-    			font-weight: normal;
+				line-height: 18px;
+				font-weight: normal;
 			}
 		}
 	}
@@ -205,4 +215,14 @@
 			font-weight: normal;
 		}
 	}
+}
+
+.pretix-soldout {
+	border: 1px solid gray;
+	background: gray;
+	border-radius: 0;
+	box-shadow: 0;
+	color: white;
+	height: auto;
+	padding: 6px 12px;
 }

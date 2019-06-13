@@ -1,6 +1,6 @@
 <?php
 
-define( 'ASSET_VERSION', '2.0.4' );
+define( 'ASSET_VERSION', '3.0.0' );
 
 // Move jQuery to the footer
 if (!is_admin())

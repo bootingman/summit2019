@@ -932,6 +932,11 @@ p img {
 .page--ticketing .pretix-widget-wrapper {
   max-width: 600px; }
 
+.pretix-widget-wrapper--soldout {
+  margin-bottom: 20px; }
+  .pretix-widget-wrapper--soldout .pretix-widget-mobile {
+    min-height: auto; }
+
 .pretix-widget {
   margin: 0;
   padding: 0;
@@ -971,7 +976,15 @@ p img {
       font-weight: normal;
       display: none; }
   .pretix-widget .pretix-widget-item-title {
-    font-weight: normal; }
+    font-weight: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto; }
   .pretix-widget .pretix-widget-item-title-and-description strong {
     font-family: 'SuisseInt-Bold';
     font-weight: normal; }
@@ -1077,6 +1090,15 @@ p img {
   border-radius: 0; }
   .pretix-widget-frame-holder .pretix-widget-frame-close a {
     font-weight: normal; }
+
+.pretix-soldout {
+  border: 1px solid gray;
+  background: gray;
+  border-radius: 0;
+  box-shadow: 0;
+  color: white;
+  height: auto;
+  padding: 6px 12px; }
 
 .t-uppercase {
   text-transform: uppercase; }
