@@ -47,7 +47,6 @@ jobs:
       - image: web3f/ci-commons:v0.1.9
     steps:
       - checkout
-      - setup_remote_docker
       - run:
           command: |
             ./scripts/deploy.sh staging
@@ -57,7 +56,6 @@ jobs:
       - image: web3f/ci-commons:v0.1.9
     steps:
       - checkout
-      - setup_remote_docker
       - run:
           command: |
             ./scripts/deploy.sh production
