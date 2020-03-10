@@ -14,8 +14,4 @@ else
     TAG="${CIRCLE_SHA1}"
 fi
 
-/scripts/deploy.sh helm \
-                   --set image.tag="${TAG}" \
-                   --set environment="${ENVIRONMENT}" \
-                   summit2019 \
-                   ./charts/summit2019
+/scripts/deploy.sh -t helm -a "--set image.tag=${TAG} --set environment=${ENVIRONMENT} summit2019 ./charts/summit2019"
