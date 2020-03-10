@@ -11,7 +11,7 @@ run_tests() {
 }
 
 teardown() {
-    helm delete --purge summit2019
+    helm delete summit2019
 }
 
 main(){
