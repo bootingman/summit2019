@@ -90,13 +90,13 @@ workflows:
           requires:
             - buildImage
             #- integrationTests
-      - deployStaging:
-          filters:
-            branches:
-              only: /master/
-          requires:
-            - buildImage
-            #- integrationTests
+      #- deployStaging:
+      #    filters:
+      #      branches:
+      #        only: /master/
+      #    requires:
+      #      - buildImage
+      #      #- integrationTests
       - deployProduction:
           filters:
             branches:
